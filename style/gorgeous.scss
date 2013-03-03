@@ -1,0 +1,88 @@
+@import "normalize";
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin transition( $property, $duration, $easing ) {
+	-webkit-transition: $duration $easing;
+	-moz-transition:    $duration $easing;
+	-ms-transition:     $duration $easing;
+	-o-transition:      $duration $easing;
+	transition:         $duration $easing;
+	-webkit-transition-property: $property;
+	-moz-transition-property:    $property;
+	-ms-transition-property:     $property;
+	-o-transition-property:      $property;
+	transition-property:         $property;
+}
+
+body {
+	background: #e0e0e0;
+	font-family: roboto;
+}
+
+.top-header {
+	background: #e7e7e7;
+	overflow: hidden;
+
+	h1 {
+		font-weight: 100;
+		text-shadow: -1px 1px white;
+
+		strong {
+			font-weight: 400;
+		}
+	}
+
+	nav {
+		width: 100%;
+		margin: auto;
+		box-shadow: 1px 1px 1px rgba( 0, 0, 0, 0.1 );
+		ul {
+			list-style-type: none;
+			width: 100%;
+			padding: 0;
+
+			li {
+				display: inline-block;
+				width: 25%;
+
+				a {
+					color: #333;
+					background: white;
+					text-decoration: none;
+					line-height: 3;
+					height: 3em;
+					display: block;
+					width: 100%;
+					text-align: center;
+					border-bottom: 1px solid #d7d7f7;
+					@include transition( ( border-color,background-color ), .3s, ease-in );
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+
+					&:hover {
+						border-bottom-color: red;
+						background: #eee;
+					}
+				}
+
+				&:first-child a {
+					border-radius: .3em 0 0 0;
+				}
+
+				&:last-child a {
+					border-radius: 0 .3em 0 0;
+				}
+			}
+		}
+	}
+}
+
+.main {
+	width: 95%;
+	margin: auto;
+}
